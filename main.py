@@ -151,3 +151,7 @@ async def resume(
         "certifications": certifications,
         "education": education
     })
+
+@app.exception_handler(status.HTTP_404_NOT_FOUND)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    return templates.TemplateResponse("404.html", {"request": request})
