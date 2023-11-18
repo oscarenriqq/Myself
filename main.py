@@ -34,6 +34,12 @@ async def get_articles(db: db_dependency):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Articles not found")
     return articles
 
+@app.post("/articles", status_code=status.HTTP_201_CREATED)
+async def create_article(db: db_dependency, article: schemas.Article):
+    db_article = models.Article(**article.dict())
+    db.add(db_article)
+    db.commit()
+
 @app.get("/personal_data")
 async def get_personal_data(db: db_dependency):
     personal_data = db.query(models.PersonalData).first()

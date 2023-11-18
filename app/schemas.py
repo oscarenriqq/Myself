@@ -34,3 +34,8 @@ class Education(BaseModel):
     start_year: str
     end_year: Optional[str] = None
     present: bool
+    
+class Article(BaseModel):
+    title: str
+    description: str
+    url: str
