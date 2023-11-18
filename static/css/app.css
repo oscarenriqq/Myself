@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+html body {
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+    max-width: 550px;
+    margin: 0 auto;
+}
+.logo {
+    padding: 5px;
+    transition: ease-in-out 0.1s;
+}
+
+.logo:hover {
+    background: #313437;
+}
+
+li {
+    list-style-type: none;
+}
+
+table {
+    font-size: 12px;
+}
+table tr {
+    cursor: pointer;
+}
+
+table tbody td:first-child {
+    width: 10%;
+}
+
+.img-about {
+    width: 200px;
+}
+
+@media (max-width: 768px) {
+    html body {
+        max-width: 80%;
+    }
+    .img-about {
+        width: 140px;
+    }
+}
+

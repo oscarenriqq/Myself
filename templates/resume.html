@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    {% set present_message = "Act." %}
+
+    <div class="container mt-4">
+        <main class="d-flex flex-column gap-4">
+            <article class="d-flex flex-column justify-content-start">
+                <h1 class="m-0">{{ personal_data.name }}</h1>
+                <a href="mailto:{{ personal_data.email }}"><small>{{ personal_data.email }}</small></a>
+                <a href="tel:{{ personal_data.phone }}"><small>{{ personal_data.phone }}</small></a>
+                <a href="{{ personal_data.linkedin_url }}" target="_blank"><small>{{ personal_data.linkedin_url }}</small></a>
+                <a href="{{ personal_data.github_url }}" target="_blank"><small>{{ personal_data.github_url }}</small></a>
+            </article>
+
+            <article>
+                <h2>Sobre mí</h2>
+                <p class="m-0"> {{ about_me.description }} </p>
+            </article>
+
+            <article>
+                <h2>Experiencia Laboral</h2>
+                {% for experience in work_experience %}
+                    {% set duration = experience.start_year ~ "-" ~ (experience.end_year if experience.end_year is not defined else present_message) %}
+                    <article class="d-flex flex-column">
+                            <div class="d-flex justify-content-between">
+                                <strong>{{ experience.position }}</strong>
+                                <span>{{ duration }}</span>
+                            </div>
+                            <span>{{ experience.company }}</span>
+                            <p class="m-0">{{ experience.description }}</p>
+                    </article>
+                {% endfor %}
+            </article>
+
+            <article>
+                <h2>Habilidades y Competencias</h2>
+                <article class="d-flex flex-column">
+                    {% for skill in skills %}
+                        <span>{{ skill.name }}</span>
+                    {% endfor %}
+                </article>
+            </article>
+
+            <article>
+                <h2>Educación</h2>
+                {% for education in education %}
+                {% set duration = education.start_year ~ "-" ~ (education.end_year if education.end_year is not defined else present_message) %}
+                    <article class="d-flex flex-column">
+                        <div class="d-flex justify-content-between">
+                            <strong>{{ education.title }}</strong>
+                            <span>{{ duration }}</span>
+                        </div>
+                        <span>{{ education.institute }}</span>
+                    </article>
+                {% endfor %}
+            </article>
+        </main>
+
+        <footer class="mt-4 d-flex flex-row justify-content-center">
+            <a href="/download"> Descargar CV </a>
+        </footer>
+
+    </div>
+
+{% endblock content %}

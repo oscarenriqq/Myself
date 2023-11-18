@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Molinar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    
+    <script href="/static/js/bootstrap.min.js"></script>
+    
+</head>
+<body class="d-flex flex-column py-4">
+    <header class="d-flex justify-content-between align-items-center">
+        <a class="logo fs-1 fw-bold text-decoration-none text-light" href="/">Oscar Molinar</a>
+        <a href="/about"> Sobre mí </a>
+    </header>
+
+    <main class="flex-grow-1 py-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="d-flex justify-content-between align-items-center">
+        <span class="fs-6">Oscar Molinar</span>
+        <a class="" href="/about"> Source </a>
+    </footer>
+
+</body>
+</html>
