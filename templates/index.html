@@ -9,13 +9,19 @@
             </tr>
         </thead>
         <tbody>
-            {% for article in articles %}
-                {% set year = article.created_at.strftime('%Y-%m-%d')[0:4] %}
-                <tr url="{{ article.url }}">
-                    <td>{{ year }}</td>
-                    <td>{{ article.title }}</td>
+            {% if articles|length > 0 %}
+                {% for article in articles %}
+                    {% set year = article.created_at.strftime('%Y-%m-%d')[0:4] %}
+                    <tr url="{{ article.url }}">
+                        <td>{{ year }}</td>
+                        <td>{{ article.title }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2">No hay artículos</td>
                 </tr>
-            {% endfor %}
+            {% endif %}
         </tbody>
     </table>
 
