@@ -9,7 +9,7 @@ import app.models as models
 import app.schemas as schemas
 from config.database import engine, SessionLocal
 
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 models.Base.metadata.create_all(bind=engine)
 
