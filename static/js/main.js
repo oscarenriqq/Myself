@@ -4,8 +4,12 @@ document.querySelector("tbody tr").addEventListener("click", function(e) {
         window.open(url, "_blank")
 })
 
+updateSizes()
+
 //event on change screen size
-window.addEventListener("resize", function() {
+window.addEventListener("resize", updateSizes)
+
+function updateSizes() {
     const width = window.innerWidth || document.documentElement.clientWidth
     const logo = document.querySelector("a.logo")
     const h1Main = document.querySelector("main h1")
@@ -24,4 +28,4 @@ window.addEventListener("resize", function() {
         h1Main.classList.remove("fs-3")
         h1Main.classList.add("fs-2")
     }
-})
+}
