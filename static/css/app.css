@@ -41,7 +41,7 @@ table tbody td:first-child {
 
 @media (max-width: 768px) {
     html body {
-        max-width: 90%;
+        max-width: 92%;
     }
     .img-about {
         width: 140px;
