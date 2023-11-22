@@ -45,6 +45,7 @@ table tbody td:first-child {
     }
     .img-about {
         width: 140px;
+        height: 140px;
     }
 }
 
