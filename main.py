@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI, HTTPException, Depends, status, Request, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import FileResponse
 from typing import Annotated
 from sqlalchemy.orm import Session
 from dotenv import load_dotenv
@@ -153,6 +154,11 @@ async def resume(
         "certifications": certifications,
         "education": education
     })
+    
+@app.get("/download-resume")
+async def download_resume():
+    pdf_route = "./static/cv_oscar_molinar.pdf"
+    return FileResponse(pdf_route, filename="cv_oscar_molinar.pdf", media_type='application/pdf')
 
 @app.exception_handler(status.HTTP_404_NOT_FOUND)
 async def http_exception_handler(request: Request, exc: HTTPException):
