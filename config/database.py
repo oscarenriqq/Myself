@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-URL_DATABASE = f"mysql+pymysql://{os.getenv('DBUSER')}:{os.getenv('DBPASSWORD')}@{os.getenv('DBHOST')}:{os.getenv('DBPORT')}/{os.getenv('DBNAME')}"
+URL_DATABASE = "sqlite:///./database.db"
 
 engine = create_engine(URL_DATABASE)
 

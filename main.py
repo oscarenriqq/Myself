@@ -104,7 +104,7 @@ async def get_certifications(db: db_dependency):
     certifications = db.query(models.Certifications).all()
     return certifications or []
 
-@app.post("/certifications")
+@app.post("/certifications", status_code=status.HTTP_201_CREATED)
 async def create_certifications(db: db_dependency, certifications: schemas.Certifications):
     db_certifications = models.Certifications(**certifications.dict())
     db.add(db_certifications)
